@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jgg</title>
+    <script type="text/javascript" src="./jgg.js"></script>
+    <script type="text/javascript">
+        window.onload = function()
+        {
+            new jgg.env.Builder()
+                .addComponent({
+                    html: {
+                        tag: 'div',
+                        id: 'c1',
+                        style: {
+                            width: '100px',
+                            height: '100px',
+                            backgroundColor: '#FEFAC0',
+                            float: 'left'
+                        },
+                        event: {
+                            drop: function (e) {
+                                // console.log('drop');
+                                e.preventDefault();
+                                var data = e.dataTransfer.getData("text");
+                                e.target.appendChild(document.getElementById(data));
+                            },
+                            dragover: function (e) {
+                                // console.log('dragover');
+                                e.preventDefault();
+                            }
+                        }
+                    }
+                })
+                .addComponent({
+                    html: {
+                        tag: 'div',
+                        id: 'c2',
+                        style: {
+                            width: '100px',
+                            height: '100px',
+                            backgroundColor: '#EBC5E4',
+                            float: 'left'
+                        },
+                        event: {
+                            drop: function (e) {
+                                // console.log('drop');
+                                e.preventDefault();
+                                var data = e.dataTransfer.getData("text");
+                                e.target.appendChild(document.getElementById(data));
+                            },
+                            dragover: function (e) {
+                                // console.log('dragover');
+                                e.preventDefault();
+                            }
+                        }
+                    }
+                })
+                .addComponent({
+                    html: {
+                        tag: 'div',
+                        id: 'cCleaner',
+                        style: {
+                            clear: 'both'
+                        }
+                    }
+                })
+                .addComponent({
+                    html: {
+                        tag: 'div',
+                        id: 'c3',
+                        style: {
+                            width: '100px',
+                            height: '100px',
+                            backgroundColor: '#AFD2E0'
+                        },
+                        draggable: true,
+                        event: {
+                            dragstart: function(e) {
+                                // console.log('dragstart');
+                                e.dataTransfer.setData("text", e.target.id);
+                            }
+                        }
+                    }
+                })
+                .build();
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
