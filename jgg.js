@@ -23,7 +23,13 @@ var jgg = (function() {
                 for (var eventName in options.html.event) {
                     element.addEventListener(eventName, options.html.event[eventName]);
                 }
-                document.body.appendChild(element);
+                var parentSelector = document.body;
+                if (options.parent) {
+                    if ('#' == options.parent.charAt(0)) {
+                        parentSelector = document.getElementById(options.parent.substr(1));
+                    }
+                }
+                parentSelector.appendChild(element);
                 return this;
             }
             this.getElement = function() {

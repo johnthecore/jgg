@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jgg</title>
+    <script type="text/javascript" src="./jgg.js"></script>
+    <script type="text/javascript">
+        window.onload = function()
+        {
+            new jgg.env.Builder()
+                .addComponent({
+                    html: {
+                        tag: 'div',
+                        id: 'a',
+                        style: {
+                            width: '100%',
+                            height: window.innerHeight - 20 + 'px',
+                            backgroundColor: '#FEFAC0'
+                        }
+                    }
+                })
+                .addComponent({
+                    parent: '#a',
+                    html: {
+                        tag: 'div',
+                        style: {
+                            width: '300px',
+                            height: '100px',
+                            backgroundColor: '#C8EDBB',
+                            position: 'relative',
+                            left: '0px',
+                            top: '0px'
+                        }
+                    }
+                })
+                .build();
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
